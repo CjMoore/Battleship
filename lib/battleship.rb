@@ -5,17 +5,12 @@ require_relative 'ai'
 
 class Battleship
 
-  attr_accessor :input,
-                :output,
-                :ai_board
+  attr_accessor
 
 
-  def initialize(input, output)
-    @input = input
-    @output = output
-    @ai_board = Ai.new.ai_board
-    @player_board =
+  def initialize
     @ai = Ai.new
+    @player = Player.new
   end
 
   def welcome
@@ -46,6 +41,19 @@ class Battleship
     puts Messages.ai_placement
     puts Messages.board_boarder
     print_board(ai_board)
+
+    print_board(update_board(false, "A2", ai_board))
+
+  end
+
+  def update_board(hit, shot, board)
+    if hit == true
+      binding.pry
+      board[shot[0]][shot[1].to_i] = " H"
+    else
+      board[shot[0]][shot[1]] = " M"
+    end
+    board
   end
 
   def print_board(board)

@@ -1,20 +1,22 @@
 require_relative 'board'
+require 'pry'
 
 class Ai
 
-  attr_accessor :ai_board,
-                :placement
+  attr_accessor :ai_board
+
 
   def initialize
-    @ai_board = Board.new.create_board(4)
+    @ai_board = Board.new
     # @ai_two_unit_place = two_unit_place
     # @ai_three_unit_place = three_unit_place
+    # binding.pry
   end
 
-  def placement
-      board_size = @ai_board.size
-
-  end
+  # def placement
+  #     board_size = @ai_board.size
+  #
+  # end
 
   # def two_unit_place
   #
@@ -23,3 +25,6 @@ class Ai
 
 
 end
+
+ai = Ai.new
+binding.pry

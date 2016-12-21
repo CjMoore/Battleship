@@ -1,4 +1,0 @@
-class Checker
-
-
-end
