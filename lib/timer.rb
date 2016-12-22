@@ -1,4 +1,4 @@
-class Time
+module Timer
 
 
 end

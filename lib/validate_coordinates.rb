@@ -44,4 +44,13 @@ module ValidateCoordinates
     end
   end
 
+  def valid_coordinate?(first_coordinate, second_coordinate)
+    if coordinates_are_vertical?(first_coordinate, second_coordinate) && vertical_placement_is_adjacent?(first_coordinate, second_coordinate)
+      true
+    elsif coordinates_are_horizontal?(first_coordinate, second_coordinate) && horizontal_placement_is_adjacent?(first_coordinate, second_coordinate)
+      true
+    else
+      false
+    end
+  end
 end

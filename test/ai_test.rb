@@ -43,9 +43,15 @@ class AiTest < MiniTest::Test
   end
 
   def test_ai_can_validate_second_coordinate
+    ai = Ai.new
+    ai.add_destroyer(Ship.new(2))
+    first_coordinate = "A1"
+    second_coordinate = "A2"
+    third_coordinate = "A4"
 
-
-
+    assert ai.valid_coordinate?(first_coordinate, second_coordinate)
+    refute ai.valid_coordinate?(first_coordinate, third_coordinate)
+  end
 
 
 end

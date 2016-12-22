@@ -11,11 +11,11 @@ class Ai
 
   attr_accessor :ai_board,
                 :ai_destroyer,
-                :ai_submarine
+                :ai_submarine,
+                :second_coordinate,
+                :first_coordinate
 
   attr_reader :all_board_coordinates,
-              :first_coordinate,
-              :second_coordinate,
               :destroyer_coordinates
 
 
@@ -43,10 +43,11 @@ class Ai
   def get_all_coordinates(ship)
     if ship.length == 2
       @destroyer_coordinates << @first_coordinate
-      if second_coordinate.valid_coordinate?(@first_coordinate, @second_coordinate)
+      if valid_coordinate?(@first_coordinate, @second_coordinate)
         @destroyer_coordinates << @second_coordinate
       else
         get_second_coordinate
+      end
     end
   end
 
@@ -58,18 +59,4 @@ class Ai
     @second_coordinate = @all_board_coordinates.sample
   end
 
-  def valid_coordinate?(first_coordinate, second_coordinate)
-    if coordinates_are_vertical?(first_coordinate, second_coordinate) && vertical_placement_is_adjacent?(first_coordinate, second_coordinate)
-      true
-    elsif coordinates_are_horizontal?(first_coordinate, second_coordinate) && horizontal_placement_is_adjacent(first_coordinate, second_coordinate)
-      true
-    else
-      false
-    end
-  end
-
-
 end
-
-ai = Ai.new
-# binding.pry
