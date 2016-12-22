@@ -1,6 +1,7 @@
 class Ship
 
-  attr_reader :hits
+  attr_reader :hits,
+              :length
   attr_accessor :health
 
   def initialize(length)

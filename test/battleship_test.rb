@@ -7,8 +7,14 @@ require 'pry'
 
 class BattleshipTest < MiniTest::Test
 
-  def test_starting_sequence_outputs_intro
-    
+  def test_game_gives_ai_its_ships
+    game = Battleship.new
+    game.play
+    # binding.pry
 
+    assert_equal Ship, game.ai.ai_destroyer.class
+    assert_equal Ship, game.ai.ai_submarine.class
+    assert_equal 2, game.ai.ai_destroyer.length
+    assert_equal 3, game.ai.ai_submarine.length
   end
 end

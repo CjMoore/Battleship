@@ -1,7 +1,10 @@
 require_relative 'space'
 require 'pry'
+require_relative 'make_all_coordinates'
 
 class CreateBoard
+
+  include MakeAllCoordinates
 
   attr_reader :row_letters,
               :space_names,
@@ -22,15 +25,7 @@ class CreateBoard
   end
 
   def space_names
-    @space_names = Array.new
-    4.times do |i|
-      letter = row_letters[i]
-      4.times do |j|
-        j += 1
-        @space_names << letter + j.to_s
-      end
-    end
-    @space_names
+    @space_names = all_coordinates
   end
 
   def spaces

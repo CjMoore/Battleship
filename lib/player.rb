@@ -13,11 +13,11 @@ class Player
     input = gets.chomp
   end
 
-  
+
 
 
 end
 
 player = Player.new
 
-binding.pry
+# binding.pry

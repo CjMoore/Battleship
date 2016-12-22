@@ -13,15 +13,15 @@ class SpaceTest < MiniTest::Test
 
   def test_space_can_be_given_name
     space = Space.new
-    space.name = "A1"
+    space.add_name("A1")
 
     assert_equal "A1", space.name
   end
 
-  def test_space_can_be_occupied_by_ship
+  def test_space_can_add_ship
     space = Space.new
     ship = Ship.new(2)
-    space.occupied = ship
+    space.add_ship(ship)
 
     assert_equal ship, space.occupied
   end
@@ -29,12 +29,10 @@ class SpaceTest < MiniTest::Test
   def test_space_can_tell_ship_it_has_been_hit
     space = Space.new
     ship = Ship.new(2)
-    space.occupied = ship
+    space.add_ship(ship)
     space.attacked
 
     assert_equal 1, ship.hits
   end
-
-  def
 
 end

@@ -15,6 +15,10 @@ class Space
     @name = name
   end
 
+  def add_ship(ship)
+    @occupied = ship
+  end
+
   def attacked
     if occupied != nil
       @status = "H"
